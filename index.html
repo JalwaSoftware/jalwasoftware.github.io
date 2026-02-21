@@ -1,31 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Jalwa Software</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body{margin:0;font-family:Arial;background:#f4f4f4;}
-header{background:#0d6efd;color:white;padding:30px;text-align:center;}
-section{padding:50px;text-align:center;}
-button{background:#0d6efd;color:white;padding:10px 20px;border:none;border-radius:5px;}
-footer{background:#222;color:white;padding:15px;text-align:center;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial, sans-serif;}
+header{
+  background:linear-gradient(135deg,#0d6efd,#003366);
+  color:white;
+  text-align:center;
+  padding:80px 20px;
+}
+header h1{font-size:40px;}
+header p{margin-top:10px;font-size:18px;}
+nav{
+  background:#111;
+  padding:10px;
+  text-align:center;
+}
+nav a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+section{
+  padding:60px 20px;
+  text-align:center;
+}
+.services{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+}
+.card{
+  width:250px;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+.card h3{margin-bottom:10px;}
+.btn{
+  display:inline-block;
+  background:#0d6efd;
+  color:white;
+  padding:12px 25px;
+  margin-top:15px;
+  border-radius:5px;
+  text-decoration:none;
+}
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>Jalwa Software</h1>
-<p>Professional Website Development Company</p>
+  <h1>Jalwa Software</h1>
+  <p>Professional Website Development Company</p>
+  <a href="#contact" class="btn">Get Started</a>
 </header>
 
-<section>
-<h2>We Build Modern Websites</h2>
-<p>Fast, responsive and SEO-friendly websites for your business growth.</p>
-<button>Contact Us</button>
+<nav>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Business Website</h3>
+      <p>Modern and responsive websites.</p>
+    </div>
+    <div class="card">
+      <h3>E-commerce</h3>
+      <p>Sell products online easily.</p>
+    </div>
+    <div class="card">
+      <h3>Custom Design</h3>
+      <p>Unique website as per your need.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>We create high-quality websites that help businesses grow digitally.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: arjun322701@gmail.com</p>
+  <p>Phone: +919216239624</p>
 </section>
 
 <footer>
-© 2025 Jalwa Software | All Rights Reserved
+  © 2025 Jalwa Software | All Rights Reserved
 </footer>
 
 </body>
