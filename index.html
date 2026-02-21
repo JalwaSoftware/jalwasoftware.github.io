@@ -3,28 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jalwa Software | Premium Web Agency</title>
+<title>Jalwa Software | Elite Digital Agency</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Segoe UI',sans-serif;
-  background:#0f172a;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
   color:white;
   scroll-behavior:smooth;
 }
 
 /* NAVBAR */
 nav{
-  background:rgba(0,0,0,0.8);
-  backdrop-filter:blur(12px);
-  position:sticky;
+  position:fixed;
+  width:100%;
   top:0;
+  backdrop-filter:blur(15px);
+  background:rgba(15,23,42,0.7);
   z-index:1000;
 }
 
@@ -34,80 +31,78 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
+  padding:18px 20px;
 }
 
-.logo img{
-  height:45px;
-  width:auto;
-  display:block;
-}
+.logo img{height:45px;}
 
 .nav-links{
   display:flex;
-  gap:40px;
+  gap:35px;
 }
 
 .nav-links a{
-  color:white;
   text-decoration:none;
-  font-size:15px;
+  color:white;
   font-weight:500;
   transition:0.3s;
 }
 
-.nav-links a:hover{
-  color:#38bdf8;
+.nav-links a:hover{color:#38bdf8;}
+
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
 }
 
-/* HERO SECTION */
+/* HERO */
 header{
-  background:linear-gradient(135deg,#0f172a,#1e293b);
+  padding:180px 20px 120px;
   text-align:center;
-  padding:140px 20px;
 }
 
 header h1{
-  font-size:48px;
+  font-size:52px;
   margin-bottom:25px;
+  animation:fadeUp 1s ease forwards;
 }
 
 header p{
-  max-width:750px;
+  max-width:800px;
   margin:auto;
   font-size:20px;
-  line-height:1.7;
+  line-height:1.8;
   color:#cbd5e1;
+  animation:fadeUp 1.5s ease forwards;
 }
 
 .hero-btn{
   display:inline-block;
-  margin-top:35px;
-  padding:15px 35px;
-  border-radius:40px;
+  margin-top:40px;
+  padding:15px 40px;
+  border-radius:50px;
   background:linear-gradient(135deg,#38bdf8,#0ea5e9);
-  color:white;
   text-decoration:none;
+  color:white;
   font-weight:600;
   transition:0.3s;
 }
 
-.hero-btn:hover{
-  transform:scale(1.05);
-}
+.hero-btn:hover{transform:scale(1.05);}
 
-/* SECTIONS */
+/* SECTION */
 section{
-  padding:100px 20px;
+  padding:120px 20px;
   text-align:center;
 }
 
 section h2{
-  font-size:36px;
-  margin-bottom:50px;
+  font-size:40px;
+  margin-bottom:60px;
 }
 
-/* SERVICES */
+/* GLASS CARDS */
 .services{
   display:flex;
   flex-wrap:wrap;
@@ -116,91 +111,117 @@ section h2{
 }
 
 .card{
-  background:#1e293b;
-  width:280px;
-  padding:35px;
-  border-radius:15px;
-  transition:0.3s;
+  width:300px;
+  padding:40px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.4s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
-  background:#334155;
+  transform:translateY(-10px);
+  background:rgba(255,255,255,0.1);
 }
 
-.card h3{
-  margin-bottom:15px;
-}
-
-.card p{
-  color:#cbd5e1;
-}
+.card h3{margin-bottom:20px;}
+.card p{color:#cbd5e1;}
 
 /* CONTACT */
 .contact-box{
   max-width:600px;
   margin:auto;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  padding:40px;
+  border-radius:20px;
 }
 
-input, textarea{
+input,textarea{
   width:100%;
   padding:15px;
   margin:10px 0;
   border:none;
-  border-radius:8px;
+  border-radius:10px;
   background:#1e293b;
   color:white;
 }
 
-textarea{
-  height:120px;
-}
-
 button{
   margin-top:15px;
-  padding:15px 30px;
+  padding:15px 35px;
   border:none;
-  border-radius:30px;
+  border-radius:40px;
   background:linear-gradient(135deg,#38bdf8,#0ea5e9);
   color:white;
   font-weight:600;
   cursor:pointer;
-  transition:0.3s;
-}
-
-button:hover{
-  transform:scale(1.05);
 }
 
 /* FOOTER */
 footer{
-  background:#020617;
   text-align:center;
-  padding:25px;
+  padding:30px;
   color:#94a3b8;
+  background:#020617;
 }
 
+/* WHATSAPP */
+.whatsapp-float{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+
+.whatsapp-float:hover{transform:scale(1.1);}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* MOBILE */
 @media(max-width:768px){
-  header h1{
-    font-size:36px;
-  }
   .nav-links{
-    gap:20px;
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#0f172a;
+    flex-direction:column;
+    width:200px;
+    padding:20px;
+    display:none;
   }
+
+  .nav-links.active{display:flex;}
+
+  .menu-toggle{display:block;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <div class="nav-container">
     <div class="logo">
       <img src="logo.png" alt="Jalwa Software Logo">
     </div>
 
-    <div class="nav-links">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="navLinks">
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -208,92 +229,74 @@ footer{
   </div>
 </nav>
 
-<!-- HERO -->
 <header>
-  <h1>We Build Powerful Digital Experiences</h1>
+  <h1>We Engineer Digital Excellence</h1>
   <p>
-    Jalwa Software creates modern, high-performance and conversion-focused websites 
-    that help businesses grow digitally and dominate their industry.
+    Jalwa Software is a premium digital agency delivering high-performance,
+    conversion-driven and visually stunning web solutions.
+    We don’t just build websites — we craft powerful digital experiences
+    that elevate brands, generate leads and accelerate business growth.
   </p>
   <a href="#contact" class="hero-btn">Start Your Project</a>
 </header>
 
-<!-- SERVICES -->
 <section id="services">
-  <h2>Our Services</h2>
-
+  <h2>Elite Services</h2>
   <div class="services">
     <div class="card">
-      <h3>Business Website</h3>
-      <p>Professional and responsive websites tailored for your business growth.</p>
+      <h3>Premium Business Websites</h3>
+      <p>High-speed, secure and modern websites designed to establish authority and trust.</p>
     </div>
-
     <div class="card">
-      <h3>E-Commerce Solutions</h3>
-      <p>Sell products online with secure and scalable e-commerce platforms.</p>
+      <h3>Advanced E-Commerce</h3>
+      <p>Conversion-optimized online stores built to maximize sales and customer retention.</p>
     </div>
-
     <div class="card">
-      <h3>Custom Development</h3>
-      <p>Fully customized web solutions designed to match your brand identity.</p>
+      <h3>Custom Web Systems</h3>
+      <p>Tailor-made digital platforms engineered for scalability and performance.</p>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <h2>About Us</h2>
+  <h2>About Jalwa Software</h2>
   <p style="max-width:800px;margin:auto;color:#cbd5e1;">
-    We are a premium web agency focused on delivering high-quality digital solutions.
-    Our mission is to help businesses establish a strong online presence through 
-    modern design and powerful development.
+    We combine strategy, design and technology to create premium digital ecosystems.
+    Our mission is to help ambitious brands dominate their market with impactful,
+    fast and conversion-focused web experiences.
   </p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <h2>Contact Us</h2>
-
+  <h2>Let's Build Something Great</h2>
   <div class="contact-box">
     <input type="text" placeholder="Full Name">
     <input type="email" placeholder="Email Address">
     <textarea placeholder="Your Message"></textarea>
     <button>Send Message</button>
   </div>
-
-  <p style="margin-top:30px;color:#94a3b8;">
+  <p style="margin-top:25px;color:#94a3b8;">
     Email: arjun322701@gmail.com <br>
     Phone: +91 9216239624
   </p>
 </section>
-  <a href="https://wa.me/919216239624" target="_blank" class="whatsapp-float">
-  💬
-</a>
 
-<style>
-.whatsapp-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  font-size:22px;
-  padding:18px;
-  border-radius:50%;
-  text-decoration:none;
-  box-shadow:0 8px 20px rgba(0,0,0,0.3);
-  transition:0.3s;
-}
-
-.whatsapp-float:hover{
-  transform:scale(1.1);
-}
-</style>
-
-<!-- FOOTER -->
 <footer>
   © 2025 Jalwa Software | All Rights Reserved
 </footer>
+
+<a href="https://wa.me/919216239624" target="_blank" class="whatsapp-float">
+  <!-- Real WhatsApp SVG -->
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M20.52 3.48A11.82 11.82 0 0012.05 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.15 1.6 5.95L0 24l6.35-1.65a11.85 11.85 0 005.7 1.45h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.16-1.23-6.13-3.39-8.27zM12.06 21.6h-.01a9.72 9.72 0 01-4.95-1.36l-.35-.21-3.77.98 1.01-3.67-.23-.37a9.68 9.68 0 01-1.48-5.12C2.28 6.62 6.63 2.27 12.06 2.27c2.59 0 5.03 1.01 6.86 2.84a9.67 9.67 0 012.84 6.86c0 5.43-4.35 9.63-9.7 9.63zm5.33-7.22c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.16.19-.33.22-.62.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.73-1.61-2.02-.16-.29-.02-.45.12-.6.13-.13.29-.33.43-.49.15-.16.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.64-1.54-.87-2.1-.23-.55-.46-.47-.64-.48h-.55c-.19 0-.49.07-.74.37-.26.29-.99.97-.99 2.37 0 1.4 1.01 2.75 1.15 2.94.15.19 1.99 3.04 4.82 4.26.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.11-.26-.18-.55-.33z"/>
+  </svg>
+</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
