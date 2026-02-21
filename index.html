@@ -10,18 +10,51 @@
 
 body{
   font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(135deg,#0f172a,#1e293b);
+  background:linear-gradient(-45deg,#0f172a,#1e293b,#0f2027,#111827);
+  background-size:400% 400%;
+  animation:gradientMove 12s ease infinite;
   color:white;
-  scroll-behavior:smooth;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* LOADER */
+#loader{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:#0f172a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.loader-circle{
+  width:60px;
+  height:60px;
+  border:5px solid #38bdf8;
+  border-top:5px solid transparent;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  100%{transform:rotate(360deg);}
 }
 
 /* NAVBAR */
 nav{
   position:fixed;
   width:100%;
-  top:0;
   backdrop-filter:blur(15px);
-  background:rgba(15,23,42,0.7);
+  background:rgba(15,23,42,0.6);
   z-index:1000;
 }
 
@@ -44,7 +77,6 @@ nav{
 .nav-links a{
   text-decoration:none;
   color:white;
-  font-weight:500;
   transition:0.3s;
 }
 
@@ -58,14 +90,13 @@ nav{
 
 /* HERO */
 header{
-  padding:180px 20px 120px;
+  padding:200px 20px 120px;
   text-align:center;
 }
 
 header h1{
   font-size:52px;
   margin-bottom:25px;
-  animation:fadeUp 1s ease forwards;
 }
 
 header p{
@@ -74,7 +105,6 @@ header p{
   font-size:20px;
   line-height:1.8;
   color:#cbd5e1;
-  animation:fadeUp 1.5s ease forwards;
 }
 
 .hero-btn{
@@ -83,9 +113,8 @@ header p{
   padding:15px 40px;
   border-radius:50px;
   background:linear-gradient(135deg,#38bdf8,#0ea5e9);
-  text-decoration:none;
   color:white;
-  font-weight:600;
+  text-decoration:none;
   transition:0.3s;
 }
 
@@ -95,11 +124,14 @@ header p{
 section{
   padding:120px 20px;
   text-align:center;
+  opacity:0;
+  transform:translateY(50px);
+  transition:all 0.8s ease;
 }
 
-section h2{
-  font-size:40px;
-  margin-bottom:60px;
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* GLASS CARDS */
@@ -124,9 +156,6 @@ section h2{
   transform:translateY(-10px);
   background:rgba(255,255,255,0.1);
 }
-
-.card h3{margin-bottom:20px;}
-.card p{color:#cbd5e1;}
 
 /* CONTACT */
 .contact-box{
@@ -155,7 +184,6 @@ button{
   border-radius:40px;
   background:linear-gradient(135deg,#38bdf8,#0ea5e9);
   color:white;
-  font-weight:600;
   cursor:pointer;
 }
 
@@ -163,8 +191,8 @@ button{
 footer{
   text-align:center;
   padding:30px;
-  color:#94a3b8;
   background:#020617;
+  color:#94a3b8;
 }
 
 /* WHATSAPP */
@@ -180,32 +208,34 @@ footer{
   justify-content:center;
   align-items:center;
   box-shadow:0 10px 25px rgba(0,0,0,0.4);
-  transition:0.3s;
 }
 
-.whatsapp-float:hover{transform:scale(1.1);}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
+/* CUSTOM CURSOR */
+.cursor{
+  width:20px;
+  height:20px;
+  border:2px solid #38bdf8;
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:0.1s ease;
+  z-index:99999;
 }
 
-/* MOBILE */
 @media(max-width:768px){
+  body{cursor:auto;}
+  .cursor{display:none;}
   .nav-links{
     position:absolute;
     top:70px;
     right:0;
     background:#0f172a;
     flex-direction:column;
-    width:200px;
     padding:20px;
     display:none;
   }
-
   .nav-links.active{display:flex;}
-
   .menu-toggle{display:block;}
 }
 </style>
@@ -213,14 +243,13 @@ footer{
 
 <body>
 
+<div id="loader"><div class="loader-circle"></div></div>
+<div class="cursor" id="cursor"></div>
+
 <nav>
   <div class="nav-container">
-    <div class="logo">
-      <img src="logo.png" alt="Jalwa Software Logo">
-    </div>
-
+    <div class="logo"><img src="logo.png" alt="Logo"></div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
     <div class="nav-links" id="navLinks">
       <a href="#services">Services</a>
       <a href="#about">About</a>
@@ -232,10 +261,8 @@ footer{
 <header>
   <h1>We Engineer Digital Excellence</h1>
   <p>
-    Jalwa Software is a premium digital agency delivering high-performance,
-    conversion-driven and visually stunning web solutions.
-    We don’t just build websites — we craft powerful digital experiences
-    that elevate brands, generate leads and accelerate business growth.
+    Jalwa Software crafts elite digital experiences that blend performance,
+    design and innovation. We transform ideas into powerful web ecosystems.
   </p>
   <a href="#contact" class="hero-btn">Start Your Project</a>
 </header>
@@ -243,27 +270,17 @@ footer{
 <section id="services">
   <h2>Elite Services</h2>
   <div class="services">
-    <div class="card">
-      <h3>Premium Business Websites</h3>
-      <p>High-speed, secure and modern websites designed to establish authority and trust.</p>
-    </div>
-    <div class="card">
-      <h3>Advanced E-Commerce</h3>
-      <p>Conversion-optimized online stores built to maximize sales and customer retention.</p>
-    </div>
-    <div class="card">
-      <h3>Custom Web Systems</h3>
-      <p>Tailor-made digital platforms engineered for scalability and performance.</p>
-    </div>
+    <div class="card"><h3>Premium Websites</h3><p>High-speed, scalable and brand-driven web solutions.</p></div>
+    <div class="card"><h3>E-Commerce</h3><p>Conversion-focused online stores for serious growth.</p></div>
+    <div class="card"><h3>Custom Systems</h3><p>Advanced digital platforms built for long-term success.</p></div>
   </div>
 </section>
 
 <section id="about">
-  <h2>About Jalwa Software</h2>
+  <h2>About Us</h2>
   <p style="max-width:800px;margin:auto;color:#cbd5e1;">
-    We combine strategy, design and technology to create premium digital ecosystems.
-    Our mission is to help ambitious brands dominate their market with impactful,
-    fast and conversion-focused web experiences.
+    We combine strategy, design and engineering to create premium digital platforms.
+    Our mission is to help ambitious brands dominate their market.
   </p>
 </section>
 
@@ -275,10 +292,6 @@ footer{
     <textarea placeholder="Your Message"></textarea>
     <button>Send Message</button>
   </div>
-  <p style="margin-top:25px;color:#94a3b8;">
-    Email: arjun322701@gmail.com <br>
-    Phone: +91 9216239624
-  </p>
 </section>
 
 <footer>
@@ -286,16 +299,35 @@ footer{
 </footer>
 
 <a href="https://wa.me/919216239624" target="_blank" class="whatsapp-float">
-  <!-- Real WhatsApp SVG -->
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-    <path d="M20.52 3.48A11.82 11.82 0 0012.05 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.15 1.6 5.95L0 24l6.35-1.65a11.85 11.85 0 005.7 1.45h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.16-1.23-6.13-3.39-8.27zM12.06 21.6h-.01a9.72 9.72 0 01-4.95-1.36l-.35-.21-3.77.98 1.01-3.67-.23-.37a9.68 9.68 0 01-1.48-5.12C2.28 6.62 6.63 2.27 12.06 2.27c2.59 0 5.03 1.01 6.86 2.84a9.67 9.67 0 012.84 6.86c0 5.43-4.35 9.63-9.7 9.63zm5.33-7.22c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.16.19-.33.22-.62.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.73-1.61-2.02-.16-.29-.02-.45.12-.6.13-.13.29-.33.43-.49.15-.16.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.64-1.54-.87-2.1-.23-.55-.46-.47-.64-.48h-.55c-.19 0-.49.07-.74.37-.26.29-.99.97-.99 2.37 0 1.4 1.01 2.75 1.15 2.94.15.19 1.99 3.04 4.82 4.26.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.11-.26-.18-.55-.33z"/>
-  </svg>
+<svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+<path d="M20.52 3.48A11.82 11.82 0 0012.05 0C5.5 0 .2 5.3.2 11.85c0 2.1.55 4.15 1.6 5.95L0 24l6.35-1.65a11.85 11.85 0 005.7 1.45h.01c6.55 0 11.85-5.3 11.85-11.85 0-3.16-1.23-6.13-3.39-8.27z"/>
+</svg>
 </a>
 
 <script>
 function toggleMenu(){
   document.getElementById("navLinks").classList.toggle("active");
 }
+
+window.onload=function(){
+  document.getElementById("loader").style.display="none";
+}
+
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",e=>{
+  cursor.style.left=e.pageX+"px";
+  cursor.style.top=e.pageY+"px";
+});
+
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    const rect=sec.getBoundingClientRect();
+    if(rect.top<window.innerHeight-100){
+      sec.classList.add("show");
+    }
+  });
+});
 </script>
 
 </body>
