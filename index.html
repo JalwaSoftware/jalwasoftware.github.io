@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Jalwa Software | Premium Website Development Company</title>
+<title>Jalwa Software | Premium Web Agency</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -10,74 +10,98 @@
 
 body{
 font-family:'Segoe UI',sans-serif;
-background:#f4f7fb;
-color:#333;
+background:#0f172a;
+color:white;
 scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+nav{
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+padding:20px 0;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 20px;
+}
+
+.logo{
+font-size:20px;
+font-weight:bold;
+color:white;
+letter-spacing:1px;
+}
+
+.nav-links{
+display:flex;
+gap:40px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#38bdf8;
 }
 
 /* HERO */
 header{
-background:linear-gradient(135deg,#001f3f,#0056b3);
-color:white;
+background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
 text-align:center;
-padding:140px 20px;
+padding:170px 20px;
 }
 
 header h1{
-font-size:52px;
-margin-bottom:20px;
+font-size:60px;
+margin-bottom:25px;
 }
 
 header p{
 font-size:20px;
-max-width:800px;
+max-width:850px;
 margin:auto;
-line-height:1.6;
+line-height:1.7;
+color:#cbd5e1;
 }
 
 .btn{
 display:inline-block;
-margin-top:35px;
-background:white;
-color:#0056b3;
-padding:15px 40px;
-border-radius:40px;
+margin-top:40px;
+background:#38bdf8;
+color:black;
+padding:18px 50px;
+border-radius:50px;
 font-weight:bold;
 text-decoration:none;
 transition:0.3s;
 }
 
 .btn:hover{
-background:#e0e0e0;
-}
-
-/* NAV */
-nav{
-background:#000;
-padding:20px;
-text-align:center;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-nav a{
-color:white;
-margin:0 30px;
-text-decoration:none;
-font-weight:bold;
-font-size:15px;
+background:white;
 }
 
 /* SECTIONS */
 section{
-padding:110px 20px;
+padding:120px 20px;
 text-align:center;
 }
 
 h2{
-font-size:38px;
-margin-bottom:30px;
+font-size:42px;
+margin-bottom:50px;
 }
 
 /* SERVICES */
@@ -86,21 +110,20 @@ display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:40px;
-margin-top:50px;
 }
 
 .card{
-background:white;
+background:#1e293b;
 width:320px;
-padding:40px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:0.3s;
+padding:45px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-12px);
-box-shadow:0 15px 40px rgba(0,0,0,0.12);
+transform:translateY(-15px);
+background:#334155;
 }
 
 .card h3{
@@ -110,64 +133,74 @@ font-size:22px;
 
 .card p{
 font-size:15px;
-line-height:1.7;
-color:#555;
+line-height:1.8;
+color:#cbd5e1;
 }
 
 /* ABOUT */
 .about-text{
-max-width:950px;
+max-width:900px;
 margin:auto;
 line-height:1.9;
-font-size:17px;
-color:#444;
+font-size:18px;
+color:#cbd5e1;
 }
 
 /* CONTACT */
 #contact{
-background:#f4c430;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 
 .contact-box{
-max-width:650px;
-margin:50px auto;
-background:white;
-padding:50px;
-border-radius:15px;
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
+max-width:700px;
+margin:60px auto;
+background:rgba(255,255,255,0.08);
+padding:60px;
+border-radius:25px;
+backdrop-filter:blur(20px);
+box-shadow:0 25px 60px rgba(0,0,0,0.6);
 }
 
 input, textarea{
 width:100%;
-padding:16px;
-margin-bottom:20px;
-border:1px solid #ddd;
-border-radius:8px;
+padding:18px;
+margin-bottom:22px;
+border:none;
+border-radius:12px;
 font-size:15px;
+background:rgba(255,255,255,0.15);
+color:white;
+outline:none;
+}
+
+input::placeholder,
+textarea::placeholder{
+color:#ddd;
 }
 
 button{
 width:100%;
-padding:16px;
-background:#000;
-color:white;
+padding:18px;
+background:#38bdf8;
+color:black;
 border:none;
-border-radius:8px;
+border-radius:12px;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
 }
 
 button:hover{
-background:#333;
+background:white;
 }
 
 /* FOOTER */
 footer{
 background:#000;
-color:white;
+color:#aaa;
 text-align:center;
-padding:30px;
+padding:40px;
 font-size:14px;
 }
 
@@ -180,14 +213,46 @@ background:#25D366;
 color:white;
 padding:20px;
 border-radius:50%;
-font-size:24px;
+font-size:22px;
 text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.nav-container{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+gap:20px;
+}
+
+header h1{
+font-size:40px;
+}
+
+.card{
+width:90%;
+}
 }
 </style>
 </head>
 
 <body>
+
+<nav>
+<div class="nav-container">
+<div class="logo">Jalwa Software</div>
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
 
 <header>
 <h1>Jalwa Software</h1>
@@ -197,12 +262,6 @@ that help businesses grow digitally and establish a powerful online presence.
 </p>
 <a href="#contact" class="btn">Start Your Project</a>
 </header>
-
-<nav>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
 
 <section id="services">
 <h2>Our Premium Services</h2>
@@ -214,24 +273,22 @@ that help businesses grow digitally and establish a powerful online presence.
 <p>
 Custom-built responsive websites designed to build credibility, 
 generate leads and increase customer engagement.
-Perfect for startups and growing businesses.
 </p>
 </div>
 
 <div class="card">
 <h3>E-Commerce Development</h3>
 <p>
-Complete online store setup with payment gateway integration, 
-admin dashboard and optimized shopping experience 
-to increase sales and revenue.
+Complete online store setup with payment gateway integration 
+and optimized shopping experience to increase revenue.
 </p>
 </div>
 
 <div class="card">
 <h3>Custom Web Design</h3>
 <p>
-Creative, brand-focused and performance-driven website design 
-tailored to your business goals and audience needs.
+Creative and performance-driven website design 
+tailored to your brand and business goals.
 </p>
 </div>
 
@@ -241,22 +298,15 @@ tailored to your business goals and audience needs.
 <section id="about">
 <h2>About Jalwa Software</h2>
 <div class="about-text">
-<p>
 Jalwa Software is a premium website development company dedicated to 
 delivering modern, scalable and high-quality digital solutions.
-We combine creativity, technology and strategy to create websites 
-that drive measurable business growth.
-</p>
-<br>
-<p>
-Our mission is to help businesses establish a strong digital identity 
-and compete confidently in today’s fast-growing online marketplace.
-</p>
+We combine creativity and technology to create websites that 
+drive measurable business growth and long-term digital success.
 </div>
 </section>
 
 <section id="contact">
-<h2>Get In Touch</h2>
+<h2>Let’s Work Together</h2>
 
 <div class="contact-box">
 <form action="https://formsubmit.co/arjun322701@gmail.com" method="POST">
@@ -270,7 +320,7 @@ and compete confidently in today’s fast-growing online marketplace.
 
 </form>
 
-<p style="margin-top:25px;font-weight:bold;">
+<p style="margin-top:30px;color:#ddd;">
 📧 arjun322701@gmail.com <br>
 📞 +91 9216239624
 </p>
